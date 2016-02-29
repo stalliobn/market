@@ -1,0 +1,101 @@
+.menu.dark {
+  a {
+    color: #000;
+    &:hover {
+      border-color: #000;
+    }
+  }
+}
+.main-title {
+  font-size: 42px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 100px;
+  margin-top: 100px;
+  font-family:"Uni Sans Heavy";
+  @include breakpoint((to: 768px)) {
+    font-size: 25px;
+    margin-bottom: 60px;
+    margin-top: 60px;
+  }
+}
+.blue {
+  background: #007ebf;
+  .item {
+    background: none;
+    color: #fff;
+    &:hover {
+      box-shadow: none;
+    }
+    p {
+      color: #fff;
+    }
+  }
+}
+.title-item {
+  font-size: 27px;
+  font-weight: 100;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+.container-description {
+  max-width: 880px;
+  padding: 0 10px;
+  margin: auto;
+  p {
+    font-size: 20px;
+    line-height: 30px;
+    color: #000;
+  }
+  .margb {
+    margin-bottom: 60px;
+  }
+}
+.list {
+  padding-left: 20px;
+  margin-bottom: 50px;
+  li {
+    position: relative;
+    margin-bottom: 20px;
+    font-size: 17px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      display: block;
+      left: -25px;
+      top: 1px;
+      background: url(../images/sprite.png) no-repeat 0 -439px;
+    }
+  }
+}
+.text {
+  margin-bottom: 40px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.trigger.dark {
+  background-position: 0 -457px;
+}
+.icon-xs {
+  height: 40px;
+  width: 45px;
+  display: block;
+  margin: auto;
+  background: url(../images/sprite.png) no-repeat;
+}
+.icon-6 {
+  background-position: 3px -476px;
+}
+.icon-7 {
+  background-position: 4px -516px;
+}
+.icon-8 {
+  background-position: 0 -556px;
+}

@@ -1,0 +1,41 @@
+@import 'variables', 'mixins', 'normalize';
+@import 'parts/grid', 'parts/header', 'parts/page', 'parts/animation';
+html {
+  &:before {
+    content: "#{inspect($breakpoints)}";
+    display: none;
+  }
+}
+.clearfix {
+  @each $pseudo in after before {
+    &:#{$pseudo} {
+      content: '';
+      display: table;
+    }
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+
+body {
+  font-family: "Calibri", Arial;
+  background: #fafafa;
+}
+b {
+  font-family:"Uni Sans Heavy";
+}
+@font-face {
+  font-family:"Uni Sans";
+  src:url("../fonts/uni-sans.thin-caps.otf");
+}
+@font-face {
+  font-family:"Uni Sans Heavy";
+  src:url("../fonts/uni-sans.heavy-caps.otf");
+}
+@font-face {
+  font-family: "Calibri";
+  src:url("../fonts/Calibri.ttf");
+}
