@@ -14,7 +14,7 @@
     $mainBg.css({
       height: $window.height() + 'px'
     });
-  }
+  };
   setHeiHeight();
   $window.resize(function() {
 
@@ -60,31 +60,24 @@
   });
 
 
-  var startPoint={};
-  var nowPoint;
-  var ldelay;
+  var start = {};
+  var point;
   var element = document.getElementById('menu');
   element.addEventListener('touchstart', function(event) {
-
-
-    startPoint.x=event.changedTouches[0].pageX;
-    startPoint.y=event.changedTouches[0].pageY;
-    ldelay=new Date();
+    start.x = event.changedTouches[0].pageX;
   }, false);
 
   element.addEventListener('touchmove', function(event) {
-    var otk={};
-    nowPoint=event.changedTouches[0];
-    otk.x=nowPoint.pageX-startPoint.x;
-    if(Math.abs(otk.x)>10){
-      if(otk.x<0){
-
+    var difference = {};
+    point = event.changedTouches[0];
+    difference.x = point.pageX - start.x;
+    if(Math.abs(difference.x) > 10){
+      if(difference.x < 0){
         open();
       }
-      if(otk.x>0){
+      if(difference.x > 0){
         closed();
       }
-      startPoint={x:nowPoint.pageX,y:nowPoint.pageY};
     }
   }, false);
 
