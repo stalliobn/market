@@ -30,18 +30,18 @@
 
 
   function open() {
-    $cont.addClass('open-sidebar');
-    $menu.css('right', '0')
-    $owerlay.fadeIn(500);
+    $cont.animate({'left': '-240'}, 300);
+    $menu.animate({'right': '0'}, 300);
+    $owerlay.fadeIn(300);
   };
   function closed() {
-    $cont.removeClass('open-sidebar');
-    $menu.css('right', '-240px')
-    $owerlay.fadeOut(500);
+    $cont.animate({'left': '0'}, 300);
+    $menu.animate({'right': '-240'}, 300);
+    $owerlay.fadeOut(300);
   };
 
   $trigger.on('click', function() {
-    if ($cont.hasClass('open-sidebar')) {
+    if ($owerlay.is(':visible')) {
       closed();
     } else {
       open();
