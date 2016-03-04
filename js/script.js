@@ -14,7 +14,7 @@
     $mainBg.css({
       height: $window.height() + 'px'
     });
-  };
+  }
   setHeiHeight();
   $window.resize(function() {
 
@@ -30,18 +30,18 @@
 
 
   function open() {
-    $cont.animate({'left': '-240'}, 300);
-    $menu.animate({'right': '0'}, 300);
-    $owerlay.fadeIn(300);
+    $cont.addClass('open-sidebar');
+    $menu.css('right', '0')
+    $owerlay.fadeIn(500);
   };
   function closed() {
-    $cont.animate({'left': '0'}, 300);
-    $menu.animate({'right': '-240'}, 300);
-    $owerlay.fadeOut(300);
+    $cont.removeClass('open-sidebar');
+    $menu.css('right', '-240px')
+    $owerlay.fadeOut(500);
   };
 
   $trigger.on('click', function() {
-    if ($owerlay.is(':visible')) {
+    if ($cont.hasClass('open-sidebar')) {
       closed();
     } else {
       open();
@@ -60,24 +60,31 @@
   });
 
 
-  var start = {};
-  var point;
+  var startPoint={};
+  var nowPoint;
+  var ldelay;
   var element = document.getElementById('menu');
   element.addEventListener('touchstart', function(event) {
-    start.x = event.changedTouches[0].pageX;
+
+
+    startPoint.x=event.changedTouches[0].pageX;
+    startPoint.y=event.changedTouches[0].pageY;
+    ldelay=new Date();
   }, false);
 
   element.addEventListener('touchmove', function(event) {
-    var difference = {};
-    point = event.changedTouches[0];
-    difference.x = point.pageX - start.x;
-    if(Math.abs(difference.x) > 10){
-      if(difference.x < 0){
+    var otk={};
+    nowPoint=event.changedTouches[0];
+    otk.x=nowPoint.pageX-startPoint.x;
+    if(Math.abs(otk.x)>10){
+      if(otk.x<0){
+
         open();
       }
-      if(difference.x > 0){
+      if(otk.x>0){
         closed();
       }
+      startPoint={x:nowPoint.pageX,y:nowPoint.pageY};
     }
   }, false);
 
